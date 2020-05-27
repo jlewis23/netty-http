@@ -65,11 +65,9 @@ repositories {
 version = getVersion()
 
 dependencies {
-    compile fileTree(dir: "lib", includes: ['*.jar'])
-
     compile group: 'javax.ws.rs', name: 'javax.ws.rs-api', version:'2.0'
     compile group: 'io.netty', name: 'netty-buffer', version:'4.1.50.Final'
-    compile group: "io.netty", name: "netty-transport-native-epoll", version: "4.1.50.Final", classifier: "linux-x86_64"
+    compile group: "io.netty", name: "netty-transport-native-epoll", version: "4.1.50.Final"
     compile group: 'io.netty', name: 'netty-codec-http', version:'4.1.50.Final'
     compile group: 'io.netty', name: 'netty-handler', version:'4.1.50.Final'
     compile group: 'org.slf4j', name: 'slf4j-api', version:'1.7.5'
