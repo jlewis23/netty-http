@@ -4,7 +4,7 @@ apply plugin: 'idea'
 apply plugin: "maven-publish"
 
 group = 'io.cdap.http'
-version = '1.5.0-SNAPSHOT'
+version = '1.6.0'
 
 description = "Netty based path router"
 
@@ -44,7 +44,7 @@ ext {
         ext.repo.accessKey = System.getenv("AWS_ACCESS_KEY_ID")
         ext.repo.secretKey = System.getenv("AWS_SECRET_ACCESS_KEY")
     } else {
-        def awsKeyFile = "replace with aws key location"
+        def awsKeyFile = project.file(System.getProperty("user.home") + "/.clickagy/aws")
         if (!awsKeyFile.exists()) {
             throw new FileNotFoundException(awsKeyFile.absolutePath)
         } else {
@@ -111,7 +111,7 @@ publishing {
 
     repositories {
         maven {
-            url "replace with s3 location for self repo"
+            url "s3://clickagy-release/mvn"
             credentials(AwsCredentials) {
                 accessKey repo.getProperty("accessKey")
                 secretKey repo.getProperty("secretKey")
